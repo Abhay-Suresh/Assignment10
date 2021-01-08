@@ -1,0 +1,23 @@
+# importing the required module 
+import matplotlib.pyplot as plt 
+
+# y axis values 
+y = [0,0,4,4,6,6,7,7,3,3,1,1,0,0,4,4,6,6,7,7,3,3,1,1,0] 
+# corresponding x axis values 
+x = [0,1,1,2,2,3,3,4,4,5,5,6,6,7,7,8,8,9,9,10,10,11,11,12,12] 
+
+# plotting the points 
+plt.plot(x, y) 
+
+# naming the y axis 
+plt.ylabel(u'V\u2090') 
+# naming the x axis 
+plt.xlabel(' ') 
+
+# giving a title to my graph 
+plt.title('Wave form of V\u2090 ') 
+
+# function to show the plot 
+plt.show()
+
+

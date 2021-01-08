@@ -1,0 +1,44 @@
+import matplotlib.pyplot as plt 
+
+# line 1 pointS
+x1 = [0,2,4,6,6,8,10,12,12,14] 
+y1 = [0,0,0,0,1,1,1,1,0,0] 
+# plotting the lIne 1 points 
+plt.plot(x1, y1)
+
+# line 2 points 
+x2 = [0,2,4,4,6,8,10,10,12,14] 
+y2 = [2,2,2,3,3,3,3,2,2,2] 
+# plotting the line 2 points 
+plt.plot(x2, y2) 
+
+# line 1 points 
+x3 = [0,2,2,4,6,8,8,10,12,14] 
+y3 = [4,4,5,5,5,5,4,4,4,4] 
+# plotting the line 1 points 
+plt.plot(x3, y3) 
+
+# line 1 points 
+x4 = [0,1/4,1/4,3/4,3/4,14] 
+y4 = [7,7,6,6,7,7,] 
+# plotting the line 1 points 
+plt.plot(x4, y4)
+
+# line 1 points 
+y5 = [8,8,9,9,8,8,9,9,8,8,9,9,8,8,9,9,8,8,9,9,8,8,9,9,8,8,9,9,8] 
+x5 = [0,1,1,2,2,3,3,4,4,5,5,6,6,7,7,8,8,9,9,10,10,11,11,12,12,13,13,14,14] 
+# plotting the line 1 points 
+plt.plot(x5, y5)
+
+# naming the x axis 
+plt.xlabel('Time') 
+# naming the y axis 
+plt.ylabel('Q0''      ' 'Q1''       ''Q2''      ''CLR''      ''CLK''    ') 
+# giving a title to my graph 
+plt.title('Timing Diagram Of Johnson Counter') 
+
+# show a legend on the plot 
+plt.legend() 
+
+# function to show the plot 
+plt.show() 

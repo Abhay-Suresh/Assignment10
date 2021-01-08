@@ -1,0 +1,139 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\usepackage{circuitikz}
+
+
+\title{Assignment10\\EC2011-29}
+\author{Abhay Suresh}
+\date{9th January 2021}
+
+\begin {document}
+
+\maketitle
+
+\section{Assigned Question}
+\begin{figure}[htp]
+    \centering
+     \includegraphics[width=12cm]{A10.jpg}
+\end{figure}
+
+\section {What is a Johnson Counter?}
+A Johnson counter is a k‐bit switch‐tail ring counter with 2k decoding gates to provide outputs for 2k timing signals.\\
+A switch‐tail ring counter is a circular shift register with the
+complemented output of the last flip‐flop connected to the input of the first flip‐flop.\\\\
+A Johnson Counter uses D Flip Flops.\\
+The following is a D Flip Flop\\
+\begin{figure}[htp]
+    \centering
+     \includegraphics[width=10cm]{AA10.png}
+\end{figure}
+\\
+D(Data Pin)is the input state for D Flip Flop.\\
+Q and $\bar{Q}$ ,both represent Output state of the Flip flop.\\
+Based on input,Output changes its states.\\
+All these occur only in the presence of the clock signal.\\
+\begin{center}
+\begin{tabular}{ |c|c|c|c| }
+\hline
+{Clock}&{Input}&\multicolumn{2}{|c|}{Output}\\
+\hline
+ &D&Q&$\overline{Q}$\\
+\hline
+low&x&0&1\\
+high&0&0&1\\
+high&1&1&0\\
+\hline
+\end{tabular}
+\end{center}
+\\
+D Flip Flip has two more inputs,also known as ASYNCHRONOUS inputs\\
+These two inputs are CLEAR and PRESET.\\
+Asynchronous inputs on a Flip Flop have control over the outputs (Q and $\bar{Q}$) regardless of clock input status.\\\\\\
+The following is the Truth values for D Flip Flop.
+\begin{center}
+\begin{tabular}{ |c|c|c|c|c|c| }
+\hline
+{Clock}&\multicolumn{3}{|c|}{Input}&\multicolumn{2}{|c|}{Output}\\
+\hline
+ &Preset&Clear&D&Q&$\overline{Q}$\\
+\hline
+High&low&low&0&0&1\\
+High&low&low&1&1&0\\
+x&high&low&x&1&0\\
+x&low&high&x&0&1\\
+x&high&high&x&1&1\\
+\hline
+\end{tabular}
+\end{center}
+\\\\
+\section {How is a Johnson Counter Decoded?}
+The decoding of a k‐bit Johnson counter to obtain 2k timing signals follows a regular pattern.\\ The all‐0’s state is decoded by taking the complement of the two extreme flip‐flop outputs.\\ The all‐1’s state is decoded by taking the normal outputs of the two extreme flip‐flops.\\ All other states are decoded from an adjacent 1,0 or 0,1 pattern in the sequence.\\
+
+\section {Concept Related to the question}
+1) Input of D/A converter $(D_2,D_1,D_0)$ =  Output of Johnson Counter $(Q_2,Q_1,Q_0)$\\\\
+2) The waveform is drawn using the ouput obtained for $V_o$ ie. due to input $D_2,D_1,D_0$
+\\
+\section {Solution}
+Based on Section 3 we can say that we will obtain 6 timing signals,because the given Johnson Counter is 3-bit Johnson Counter.\\
+These 3 sections are basically 3 different D Flip Flops as represented in Figure1.\\
+\begin{figure}[htp]
+    \centering
+     \includegraphics[width=11cm]{A10A.png}
+     \caption{Johnson Counter represented by Three D Flip Flops}
+\end{figure}\\
+Here the Data pins are assumed to be as $S_2,S_1,S_0$ to avoid confusion with the data inputs of D/A coverter.($D_2,D_1,D_0$)\\
+Using the concept from Section3 the following is the Output Table for the given Johnson Counter\\\\
+
+\begin{center}
+\begin{tabular}{ |c|c|c|c|c|c| }
+\hline
+Clear&Clock&${Q_2}$&${Q_1}$&${Q_0}$&Stages\\
+\hline
+0&x&0&0&0&0\\
+1&$\downarrow$&1&0&0&4\\
+1&$\downarrow$&1&1&0&6\\
+1&$\downarrow$&1&1&1&7\\
+1&$\downarrow$&0&1&1&3\\
+1&$\downarrow$&0&0&1&1\\
+\hline
+\end{tabular}
+\end{center}
+\begin{center}
+Table 1: Output of the given Johnson Ring Counter
+\end{center}
+\\
+Here $\downarrow$ represent that the D Flip Flop is negative edge triggered.\\
+The Following is the timing Diagram of the same Output received.\\
+\begin{figure}[htp]
+    \centering
+     \includegraphics[width=8cm]{TIME.png}
+\end{figure}
+\\
+From the 1st concept we know that \\Input of D/A converter $(D_2,D_1,D_0)$ = Output of Johnson Counter $(Q_2,Q_1,Q_0)$\\
+Hence the output for the D/A converter is as follows.
+\begin{center}
+\begin{tabular}{ |c|c|c|c|c|c| }
+\hline
+${Q_2}$$\rightarrow$${D_2}$&${Q_1}$$\rightarrow$${D_1}$&${Q_0}$$\rightarrow$${D_0}$&Stages\\
+\hline
+0&0&0&0\\
+1&0&0&4\\
+1&1&0&6\\
+1&1&1&7\\
+0&1&1&3\\
+0&0&1&1\\
+\hline
+\end{tabular}
+\end{center}
+The obtained values of stages are plotted to obtain the waveform for $V_0$
+\\
+Which is Option A.\\
+\begin{figure}[htp]
+    \centering
+     \includegraphics[width=8cm]{10a.png}
+     \caption{Final Answer}
+\end{figure}\\
+\Large
+Hence A is the Answer
+\end{document}
